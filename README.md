@@ -1,12 +1,9 @@
 
 # 📊 XYZ Business Operations Data Platform
 
-This project is a complete full-stack SQL database solution for managing the internal operations of **XYZ Company**, a fictional mid-sized manufacturer. The system enables querying, visualization, and manipulation of company data including employees, customers, job applications, sales, products, parts, vendors, and more.
+Cloud-hosted business operations platform for managing employees, departments, customers, vendors, products, applications, interviews, sales, and reporting workflows.
 
-> 📅 **Course**: CS 4347 – Database Systems  
-> 🧑‍💻 **Student**: Andre Sanabria  
-> 🗓️ **Term**: Spring 2025  
-> 📌 **Date**: April 6, 2025
+This project started as a relational database system and is being rebuilt into a portfolio project centered on backend engineering, cloud deployment, and structured business data management.
 
 ---
 
