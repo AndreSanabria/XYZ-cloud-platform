@@ -61,7 +61,7 @@ See `docs/architecture.md` for the cloud deployment direction and system design.
     npm install
 
 ### Database Setup
-1. Open `XYZ.sql` in MySQL Workbench or MySQL CLI.
+1. Open `database/schema.sql` in MySQL Workbench or MySQL CLI.
 2. Execute the script to create the schema, tables, and constraints.
 3. Optionally use `DataGenerator.ipynb` to generate or populate sample data.
 
@@ -110,7 +110,7 @@ Then open `http://localhost:3000`
 
 ## Repository Contents
 
-- `XYZ.sql` — full database schema and constraints
+- `database/schema.sql` — full database schema and constraints
 - `server.js` — Express backend
 - `public/` — browser-based client interface
 - `DataGenerator.ipynb` — sample data generation notebook
