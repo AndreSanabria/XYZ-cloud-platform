@@ -1,158 +1,160 @@
+# XYZ Business Operations Data Platform
 
-# 📊 XYZ Company SQL Database System – CS 4347 Semester Project
+Business operations data platform for managing employees, departments, customers, vendors, products, applications, interviews, sales, and reporting workflows.
 
-This project is a complete full-stack SQL database solution for managing the internal operations of **XYZ Company**, a fictional mid-sized manufacturer. The system enables querying, visualization, and manipulation of company data including employees, customers, job applications, sales, products, parts, vendors, and more.
-
-> 📅 **Course**: CS 4347 – Database Systems  
-> 🧑‍💻 **Student**: Andre Sanabria  
-> 🗓️ **Term**: Spring 2025  
-> 📌 **Date**: April 6, 2025
+This project began as a relational database system and is being rebuilt into a portfolio project focused on backend engineering, cloud deployment, and structured business data management.
 
 ---
 
-## 📚 Project Overview
+## Project Overview
 
-XYZ Company manufactures products using vendor-supplied parts and operates across multiple departments and marketing sites. The database is designed to track:
+XYZ Company manufactures products using vendor-supplied parts and operates across multiple departments and marketing sites. This system is designed to manage and expose operational business data across core functions such as staffing, hiring, sales, vendor sourcing, and product composition.
 
-- Employee information and supervisor relationships
-- Departmental history of employees over time
-- Job postings, applications, and interview results
-- Product composition, part sourcing, and vendor pricing
-- Sales data by site and customer
-- Salaries, transactions, and staffing
+The platform currently includes a MySQL relational database, a Node.js and Express backend, and a browser-based query interface. The long-term direction is to move this project toward a cloud deployment model using AWS services for application hosting, database management, and file storage.
 
-The goal is to provide a **normalized, relational database** that supports **querying**, **views**, and **custom constraints** to simulate real-world business operations.
+### Current Scope
+- Employee records and supervisor relationships
+- Department assignment history
+- Job postings, applications, interviews, and interview outcomes
+- Product composition, vendor parts, and pricing data
+- Sales tracking by customer and marketing site
+- SQL views and query workflows for reporting and analysis
 
----
-
-## 🛠️ Technologies Used
-
-- **Frontend**: HTML, Bootstrap 5, JavaScript
-- **Backend**: Node.js, Express
-- **Database**: MySQL (SQL schema)
-- **Notebook**: Jupyter (for data generation)
-- **Design Tools**: ER/EER diagrams, dependency diagrams (PDF)
+### Project Direction
+- Local development with MySQL and Express
+- Cloud deployment path defined in `docs/architecture.md`
+- Planned migration toward AWS RDS, EC2, and S3
 
 ---
 
-## 🔧 Project Setup
+## Architecture
 
-### 🧩 Prerequisites
-
-- MySQL server
-- Node.js & npm
-- VS Code
-
-### 📥 Installation Steps
-
-```bash
-git clone https://github.com/YourUsername/xyz-sql-query-console.git
-cd xyz-sql-query-console
-npm install
-```
-
-### 💽 Database Setup
-
-1. Open `XYZ.sql` in MySQL Workbench or CLI.
-2. Execute the file to create all tables and constraints.
-3. Optional: Use `DataGenerator.ipynb` to populate with mock data.
-
-### ▶️ Running the App
-
-```bash
-node server.js
-```
-
-Visit `http://localhost:3000` in your browser.
+See `docs/architecture.md` for the cloud deployment direction and system design.
 
 ---
 
-## 🎯 Features
+## Technology Stack
 
-### 🔍 Interactive Query Console
-- Choose from preset SQL queries categorized by table
-- Modify or create custom queries manually
-- Get instant visual results in a styled table
+### Current
+- Frontend: HTML, Bootstrap 5, JavaScript
+- Backend: Node.js, Express
+- Database: MySQL
+- Data generation: Jupyter Notebook
 
-### 🧠 Smart Randomization
-- Select an `INSERT` query from the dropdown
-- Click “Randomize” to autofill a context-aware valid `INSERT` query
-
-### 🗂️ Views Implemented
-
-- Average salary per employee (monthly)
-- Interview round pass count per candidate
-- Product type sales count
-- Total part cost per product
-
-### 🔎 15 Complex Queries (Examples)
-- Return employees with no supervisees
-- Get product types with highest profit
-- Identify best-selling product type
-- Find selected interviewees' contact info
-- Query vendors offering cheapest part with specific conditions
+### Cloud Target
+- Application hosting: AWS EC2
+- Managed database: AWS RDS for MySQL
+- File storage: AWS S3
 
 ---
 
-## 🎥 Demo
+## Local Setup
+
+### Prerequisites
+- MySQL Server
+- Node.js and npm
+
+### Installation
+
+    git clone https://github.com/AndreSanabria/XYZ-cloud-platform.git
+    cd XYZ-cloud-platform
+    npm install
+
+### Database Setup
+1. Open `XYZ.sql` in MySQL Workbench or MySQL CLI.
+2. Execute the script to create the schema, tables, and constraints.
+3. Optionally use `DataGenerator.ipynb` to generate or populate sample data.
+
+### Run the Application
+
+    node server.js
+
+Then open `http://localhost:3000`
+
+---
+
+## Features
+
+### Browser-Based Query Interface
+- Run preset SQL queries from the web interface
+- Modify existing queries or enter custom queries manually
+- View results in a structured table format
+
+### Reporting and Analysis
+- SQL views for recurring business insight queries
+- Query support for staffing, sales, interview, and vendor analysis
+- Relational design intended to support realistic operational workflows
+
+### Data Modeling
+- Normalized relational schema
+- Foreign key constraints across major business entities
+- Support for structured relationships such as supervisor chains, applications, interviews, and vendor part sourcing
+
+---
+
+## Example Business Queries
+
+- Find employees who do not supervise anyone
+- Identify top-performing product categories
+- Retrieve selected interviewees and their contact information
+- Compare vendor pricing for required parts
+- Analyze salary and sales-related records
+
+---
+
+## Demo
 
 ![Demo of SQL Console](screenshots/demo.gif)
 
 ---
 
-## 🧾 Documentation Included
+## Repository Contents
 
-- `XYZ.sql`: Full database schema with PK/FK constraints
-- `ViewsAndQueries.pdf`: All SQL views and queries
-- `ProblemDescription.txt`: Formal problem statement
-- `ProjectQuestions.txt`: Answers to rule-based DB questions
-- `NewER.pdf`, `NewEER.pdf`: Conceptual design diagrams
-- `NewRelational.pdf`: Logical schema
-- `NewDependency.pdf`: Dependency diagram
-- `DataGenerator.ipynb`: Notebook to generate sample data
-- `Logical.jpg`: Additional schema visualization
+- `XYZ.sql` — full database schema and constraints
+- `server.js` — Express backend
+- `public/` — browser-based client interface
+- `DataGenerator.ipynb` — sample data generation notebook
+- `docs/` — diagrams, schema artifacts, and architecture notes
+- `screenshots/demo.gif` — application demo
 
 ---
 
-## 📁 Folder Structure
+## Documentation
 
-```
-.
-├── public/
-│   ├── index.html
-│   ├── style.css
-│   ├── script.js
-├── screenshots/
-│   ├── demo.gif
-├── server.js
-├── XYZ.sql
-├── package-lock.json
-├── DataGenerator.ipynb
-├── docs/
-│   ├── NewER.pdf
-│   ├── NewEER.pdf
-│   ├── NewRelational.pdf
-│   ├── NewDependency.pdf
-│   ├── ViewsAndQueries.pdf
-│   ├── Logical.jpg
-├── ProblemDescription.txt
-├── ProjectQuestions.txt
-├── README.md
-```
+The `docs/` folder includes database design and supporting materials such as:
+- ER and EER diagrams
+- relational schema diagrams
+- dependency documentation
+- query and view reference material
+- architecture planning for cloud migration
 
 ---
 
-## 📌 Notes
+## Project Status
 
-- All data and logic comply with 3NF
-- Supervisor self-reference is explicitly disallowed
-- ISA hierarchy for `Person → {Employee, Customer, PotentialEmployee}`
-- Triggers/views can be added for production robustness (e.g., CEO enforcement)
+### Current State
+This project currently runs as a local full-stack application using Node.js, Express, and MySQL.
+
+### Next Direction
+This project is being reworked into a stronger backend and cloud portfolio project by:
+- improving project structure and documentation
+- defining cloud architecture
+- preparing for deployment to AWS
+- repositioning the system as a business operations data platform instead of a course-only submission
 
 ---
 
-## 📬 Contact
+## Notes
+
+- The relational model is designed around normalized business entities
+- Supervisor self-reference is disallowed in the schema design
+- The system models multiple business domains in a single relational platform
+- Cloud deployment is a planned next-stage implementation, not a completed production deployment yet
+
+---
+
+## Contact
 
 **Andre Sanabria**  
-📧 [Andre.E.Sanabria.G@gmail.com](mailto:Andre.E.Sanabria.G@gmail.com)  
-🔗 [LinkedIn Profile](https://www.linkedin.com/in/andre-san06)
+[Andre.E.Sanabria.G@gmail.com](mailto:Andre.E.Sanabria.G@gmail.com)  
+[LinkedIn](https://www.linkedin.com/in/andre-san06)
