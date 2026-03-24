@@ -1,5 +1,5 @@
 
-# 📊 XYZ Company SQL Database System – CS 4347 Semester Project
+# XYZ Business Operations Data Platform
 
 This project is a complete full-stack SQL database solution for managing the internal operations of **XYZ Company**, a fictional mid-sized manufacturer. The system enables querying, visualization, and manipulation of company data including employees, customers, job applications, sales, products, parts, vendors, and more.
 
