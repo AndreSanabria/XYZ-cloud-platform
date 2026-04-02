@@ -2,19 +2,38 @@ const express = require('express');
 const mysql = require('mysql2');
 require('dotenv').config();
 
-const app = express();
+const requiredEnv = ['DB_HOST', 'DB_PORT', 'DB_USER', 'DB_PASSWORD', 'DB_NAME'];
+const missingEnv = requiredEnv.filter((key) => !process.env[key]);
 
-const PORT = process.env.PORT || 3000;
+if (missingEnv.length > 0) {
+  console.error(`Missing required environment variables: ${missingEnv.join(', ')}`);
+  process.exit(1);
+}
+
+const app = express();
+const PORT = Number(process.env.PORT || 3000);
 
 app.use(express.static('public'));
 app.use(express.json());
 
 const connection = mysql.createConnection({
-  host: process.env.DB_HOST || 'localhost',
-  port: Number(process.env.DB_PORT || 3306),
-  user: process.env.DB_USER || 'xyz_user',
-  password: process.env.DB_PASSWORD || 'xyz_password',
-  database: process.env.DB_NAME || 'XYZ'
+  host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT),
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
+});
+
+connection.connect((err) => {
+  if (err) {
+    console.error('Failed to connect to MySQL:', err.message);
+    process.exit(1);
+  }
+  console.log('Connected to MySQL');
+});
+
+app.get('/health', (req, res) => {
+  res.status(200).json({ ok: true });
 });
 
 app.post('/query', (req, res) => {
